@@ -22,7 +22,7 @@ const Todo = () => {
   const addItem = (e) => {
     e.preventDefault();
     if (!inputdata) {
-      alert("plz fill the data");
+      alert("please fill the Todo item");
     } else if (inputdata && toggleButton) {
       setItems(
         items.map((curElem) => {
@@ -56,7 +56,7 @@ const Todo = () => {
     setToggleButton(true);
   };
 
-  // how to delete items section
+  // delete the item
   const deleteItem = (index) => {
     const updatedItems = items.filter((curElem) => {
       return curElem.id !== index;
@@ -64,7 +64,7 @@ const Todo = () => {
     setItems(updatedItems);
   };
 
-  // remove all the elements
+  // remove all the items
   const removeAll = () => {
     setItems([]);
   };
@@ -79,26 +79,27 @@ const Todo = () => {
       <div className="main-div">
         <div className="child-div">
           <figure>
-            <h1 style={{color:"white"}}>React TODO List</h1>
-            <figcaption>Add Your List Here ✌</figcaption>
+            <h1 style={{ color: "white" }}>React ToDo List</h1>
+            <figcaption>Add Your Item Here</figcaption>
           </figure>
           <form onSubmit={addItem}>
-          <div className="addItems">
-            <input
-              type="text"
-              placeholder="✍ Add Item"
-              className="form-control"
-              value={inputdata}
-              onChange={(event) => setInputData(event.target.value)}
-            />
-            {toggleButton ? (
-              <i className="far fa-edit add-btn" onClick={addItem}></i>
-            ) : (
-              <i className="fa fa-plus add-btn" onClick={addItem}></i>
-            )}
-          </div>
+            <div className="addItems">
+              <input
+                type="text"
+                placeholder="✍ Add Item"
+                className="form-control"
+                value={inputdata}
+                onChange={(event) => setInputData(event.target.value)}
+              />
+              {toggleButton ? (
+                <i className="far fa-edit add-btn" onClick={addItem}></i>
+              ) : (
+                <i className="fa fa-plus add-btn" onClick={addItem}></i>
+              )}
+            </div>
           </form>
           {/* show our items  */}
+
           <div className="showItems">
             {items.map((curElem) => {
               return (
@@ -107,23 +108,26 @@ const Todo = () => {
                   <div className="todo-btn">
                     <i
                       className="far fa-edit add-btn"
-                      onClick={() => editItem(curElem.id)}></i>
+                      onClick={() => editItem(curElem.id)}
+                    ></i>
                     <i
                       className="far fa-trash-alt add-btn"
-                      onClick={() => deleteItem(curElem.id)}></i>
+                      onClick={() => deleteItem(curElem.id)}
+                    ></i>
                   </div>
                 </div>
               );
             })}
           </div>
 
-          {/* rmeove all button  */}
+          {/* remove all button  */}
           <div className="showItems">
             <button
               className="btn effect04"
               data-sm-link-text="Remove All"
-              onClick={removeAll}>
-              <span> CHECK LIST</span>
+              onClick={removeAll}
+            >
+              <span> REMOVE ALL</span>
             </button>
           </div>
         </div>

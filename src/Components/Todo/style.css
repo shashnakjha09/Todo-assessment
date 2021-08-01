@@ -177,14 +177,8 @@ input:focus {
   text-decoration: none;
 }
 
-/* media query for some classes */
-
-/* @media only screen and (max-width: 600px) {
-  .main-div {
-    min-height: 100vh;
-    background: #060822;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
   }
-} */
+}
